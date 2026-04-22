@@ -1,0 +1,194 @@
+[
+  {
+    "id": "site-vitrine",
+    "name": "Site vitrine",
+    "category": "web",
+    "basePrice": 800,
+    "unit": "flat",
+    "description": "Création d'un site professionnel responsive pour présenter votre activité.",
+    "estimatedDuration": 16,
+    "options": [
+      { "id": "seo-base", "name": "SEO de base", "extraPrice": 150 },
+      { "id": "contact-form", "name": "Formulaire de contact", "extraPrice": 80 },
+      { "id": "blog", "name": "Blog intégré", "extraPrice": 200 }
+    ]
+  },
+  {
+    "id": "maintenance-mensuelle",
+    "name": "Maintenance mensuelle",
+    "category": "web",
+    "basePrice": 150,
+    "unit": "flat",
+    "description": "Suivi technique mensuel, mises à jour et surveillance de votre site.",
+    "estimatedDuration": 3,
+    "options": [
+      { "id": "backup-weekly", "name": "Backup hebdomadaire", "extraPrice": 30 },
+      { "id": "monthly-report", "name": "Rapport mensuel", "extraPrice": 20 }
+    ]
+  },
+  {
+    "id": "seo-audit",
+    "name": "SEO audit",
+    "category": "web",
+    "basePrice": 300,
+    "unit": "flat",
+    "description": "Analyse technique et éditoriale pour améliorer la visibilité du site.",
+    "estimatedDuration": 6,
+    "options": [
+      { "id": "detailed-report", "name": "Rapport détaillé", "extraPrice": 100 },
+      { "id": "follow-up", "name": "Suivi 3 mois", "extraPrice": 200 }
+    ]
+  },
+  {
+    "id": "landing-page",
+    "name": "Landing page",
+    "category": "web",
+    "basePrice": 500,
+    "unit": "flat",
+    "description": "Page d'atterrissage optimisée pour une offre ou une campagne.",
+    "estimatedDuration": 10,
+    "options": [
+      { "id": "hero-animation", "name": "Animation hero", "extraPrice": 150 },
+      { "id": "crm", "name": "Intégration CRM", "extraPrice": 200 },
+      { "id": "ab-test", "name": "A/B test setup", "extraPrice": 120 }
+    ]
+  },
+  {
+    "id": "refonte-graphique",
+    "name": "Refonte graphique",
+    "category": "web",
+    "basePrice": 600,
+    "unit": "flat",
+    "description": "Modernisation visuelle d'une interface ou d'un site existant.",
+    "estimatedDuration": 12,
+    "options": []
+  },
+  {
+    "id": "depannage-domicile",
+    "name": "Dépannage à domicile",
+    "category": "it_support",
+    "basePrice": 80,
+    "unit": "hour",
+    "description": "Diagnostic et résolution de problèmes informatiques sur site.",
+    "estimatedDuration": 1,
+    "options": [
+      { "id": "travel-included", "name": "Déplacement inclus", "extraPrice": 50 },
+      { "id": "intervention-report", "name": "Rapport d'intervention", "extraPrice": 20 }
+    ]
+  },
+  {
+    "id": "installation-logiciels",
+    "name": "Installation logiciels",
+    "category": "it_support",
+    "basePrice": 60,
+    "unit": "hour",
+    "description": "Installation, configuration et vérification de logiciels métier ou grand public.",
+    "estimatedDuration": 1,
+    "options": [
+      { "id": "user-doc", "name": "Documentation utilisateur", "extraPrice": 40 },
+      { "id": "training", "name": "Formation incluse", "extraPrice": 60 }
+    ]
+  },
+  {
+    "id": "formation-utilisateur",
+    "name": "Formation utilisateur",
+    "category": "it_support",
+    "basePrice": 70,
+    "unit": "hour",
+    "description": "Accompagnement pédagogique sur vos outils numériques.",
+    "estimatedDuration": 1,
+    "options": [
+      { "id": "post-support", "name": "Support post-formation 1 semaine", "extraPrice": 80 },
+      { "id": "custom-manual", "name": "Manuel personnalisé", "extraPrice": 60 }
+    ]
+  },
+  {
+    "id": "mise-en-reseau",
+    "name": "Mise en réseau",
+    "category": "it_support",
+    "basePrice": 90,
+    "unit": "hour",
+    "description": "Configuration réseau, partage, accès distant et sécurisation de base.",
+    "estimatedDuration": 2,
+    "options": [
+      { "id": "mesh", "name": "Configuration Wi-Fi mesh", "extraPrice": 120 },
+      { "id": "vpn", "name": "VPN setup", "extraPrice": 100 }
+    ]
+  },
+  {
+    "id": "backup-recovery",
+    "name": "Sauvegarde & récupération données",
+    "category": "it_support",
+    "basePrice": 120,
+    "unit": "flat",
+    "description": "Mise en sécurité, récupération ou transfert de données importantes.",
+    "estimatedDuration": 2,
+    "options": [
+      { "id": "cloud-solution", "name": "Mise en place solution cloud", "extraPrice": 80 },
+      { "id": "backup-report", "name": "Rapport détaillé", "extraPrice": 30 }
+    ]
+  },
+  {
+    "id": "montage-pc-bureautique",
+    "name": "Montage PC bureautique",
+    "category": "pc_assembly",
+    "basePrice": 120,
+    "unit": "flat",
+    "description": "Assemblage propre et configuration initiale d'un PC de travail.",
+    "estimatedDuration": 2,
+    "options": [
+      { "id": "stability-24", "name": "Test de stabilité 24h", "extraPrice": 40 },
+      { "id": "premium-cabling", "name": "Câblage premium", "extraPrice": 30 }
+    ]
+  },
+  {
+    "id": "montage-pc-gaming",
+    "name": "Montage PC gaming",
+    "category": "pc_assembly",
+    "basePrice": 180,
+    "unit": "flat",
+    "description": "Assemblage, optimisation et validation d'une configuration gaming.",
+    "estimatedDuration": 3,
+    "options": [
+      { "id": "overclocking", "name": "Overclocking", "extraPrice": 80 },
+      { "id": "windows-gaming", "name": "Optimisation Windows gaming", "extraPrice": 50 },
+      { "id": "benchmark", "name": "Test benchmark", "extraPrice": 40 }
+    ]
+  },
+  {
+    "id": "upgrade-composants",
+    "name": "Upgrade composants",
+    "category": "pc_assembly",
+    "basePrice": 80,
+    "unit": "hour",
+    "description": "Remplacement ou amélioration de composants avec vérification du système.",
+    "estimatedDuration": 1,
+    "options": [{ "id": "compatibility", "name": "Test de compatibilité", "extraPrice": 30 }]
+  },
+  {
+    "id": "diagnostic-pc",
+    "name": "Diagnostic PC",
+    "category": "pc_assembly",
+    "basePrice": 60,
+    "unit": "flat",
+    "description": "Recherche de panne matérielle ou logicielle avec recommandations.",
+    "estimatedDuration": 1,
+    "options": [
+      { "id": "written-report", "name": "Rapport écrit", "extraPrice": 20 },
+      { "id": "cleaning-included", "name": "Nettoyage inclus", "extraPrice": 40 }
+    ]
+  },
+  {
+    "id": "nettoyage-maintenance",
+    "name": "Nettoyage & maintenance",
+    "category": "pc_assembly",
+    "basePrice": 80,
+    "unit": "flat",
+    "description": "Entretien physique et logiciel pour prolonger la durée de vie du PC.",
+    "estimatedDuration": 1.5,
+    "options": [
+      { "id": "thermal-paste", "name": "Remplacement pâte thermique", "extraPrice": 20 },
+      { "id": "professional-air", "name": "Soufflage professionnel", "extraPrice": 15 }
+    ]
+  }
+]

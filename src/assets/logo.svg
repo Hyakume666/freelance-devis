@@ -1,0 +1,6 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Loïc Barthoulot Freelance IT">
+  <rect width="160" height="160" rx="28" fill="#020617"/>
+  <path d="M36 106V46h16v46h28v14H36Z" fill="#F8FAFC"/>
+  <path d="M88 106V46h38c12 0 20 8 20 19 0 7-4 13-10 16 7 3 12 9 12 17 0 12-9 22-22 22H88Zm16-36h19c4 0 7-3 7-7s-3-7-7-7h-19v14Zm0 26h21c4 0 7-3 7-7s-3-7-7-7h-21v14Z" fill="#22C55E"/>
+  <path d="M34 124h92" stroke="#38BDF8" stroke-width="8" stroke-linecap="round"/>
+</svg>

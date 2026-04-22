@@ -1,0 +1,28 @@
+{
+  "company": {
+    "name": "Loïc Barthoulot — Freelance IT",
+    "address": "Canton de Neuchâtel, Suisse",
+    "email": "contact@loicbarthoulot.ch",
+    "website": "loicbarthoulot.ch",
+    "phone": ""
+  },
+  "quote": {
+    "validityDays": 30,
+    "paymentDays": 30,
+    "currency": "CHF",
+    "travelRatePerKm": 0.7,
+    "urgencySurchargePercent": 25,
+    "maxDiscountPercent": 30,
+    "quotePrefix": "DEVIS",
+    "startingNumber": 1
+  },
+  "vat": {
+    "enabled": false,
+    "rate": 7.7,
+    "exemptionText": "TVA non applicable — Art. 10 LTVA"
+  },
+  "email": {
+    "subjectTemplate": "Votre devis {quoteNumber} — Loïc Barthoulot Freelance IT",
+    "copyToOwner": true
+  }
+}

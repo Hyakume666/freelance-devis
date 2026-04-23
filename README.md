@@ -15,6 +15,9 @@ npm install
 npm run dev
 ```
 
+`npm run dev` suffit pour l'interface Vite, mais pas pour tester l'envoi d'email.
+Pour tester `/api/send-quote` en local, utilisez un environnement de développement qui expose aussi le dossier `api/`, comme `vercel dev` ou un équivalent.
+
 ## Variables d'environnement
 
 Copiez `.env.example` vers `.env.local` puis renseignez:

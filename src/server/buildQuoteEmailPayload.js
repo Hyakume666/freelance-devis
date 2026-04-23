@@ -11,6 +11,20 @@ function valueOf(maybeRef) {
 }
 
 /**
+ * Escape user-controlled strings before interpolating them into HTML.
+ * @param {unknown} value
+ * @returns {string}
+ */
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
+/**
  * Build the Brevo transactional email payload for a quote.
  * @param {{ quote: { state: object, totals: object }, pdf: { base64: string, fileName: string }, ownerEmail?: string }} params
  */
@@ -23,12 +37,14 @@ export function buildQuoteEmailPayload({ quote, pdf, ownerEmail }) {
   const quoteNumber = meta.quoteNumber || ''
   const clientName = `${client.firstName || ''} ${client.lastName || ''}`.trim()
   const subject = settings.email.subjectTemplate.replace('{quoteNumber}', quoteNumber)
+  const escapedQuoteNumber = escapeHtml(quoteNumber)
+  const escapedFirstName = escapeHtml(client.firstName)
 
   const lines = rows
     .map(
       (row) => `
           <tr>
-            <td style="padding:8px;border-bottom:1px solid #e5e7eb;">${row.service.name}</td>
+            <td style="padding:8px;border-bottom:1px solid #e5e7eb;">${escapeHtml(row.service?.name)}</td>
             <td style="padding:8px;border-bottom:1px solid #e5e7eb;text-align:right;">${formatMoney(row.lineTotal)}</td>
           </tr>
         `,
@@ -42,8 +58,8 @@ export function buildQuoteEmailPayload({ quote, pdf, ownerEmail }) {
     subject,
     htmlContent: `
         <div style="font-family:Arial,sans-serif;color:#111827;line-height:1.5;">
-          <h1 style="font-size:22px;">Votre devis ${quoteNumber}</h1>
-          <p>Bonjour ${client.firstName || ''},</p>
+          <h1 style="font-size:22px;">Votre devis ${escapedQuoteNumber}</h1>
+          <p>Bonjour ${escapedFirstName},</p>
           <p>Vous trouverez votre devis en pièce jointe. Voici le récapitulatif principal:</p>
           <table style="border-collapse:collapse;width:100%;max-width:560px;">${lines}</table>
           <p style="font-size:18px;font-weight:700;">Total: ${formatMoney(total)}</p>

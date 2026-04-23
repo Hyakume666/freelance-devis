@@ -17,13 +17,14 @@ npm run dev
 
 ## Variables d'environnement
 
-Copiez `.env.example` vers `.env` puis renseignez:
+Copiez `.env.example` vers `.env.local` puis renseignez:
 
 ```bash
-VITE_BREVO_API_KEY=
-VITE_OWNER_EMAIL=
+BREVO_API_KEY=
+OWNER_EMAIL=
 ```
 
+La clé Brevo est lue uniquement côté serveur via `/api/send-quote`.
 Les clés API ne sont jamais stockées dans `localStorage`.
 
 ## Données
@@ -42,17 +43,15 @@ npm run lint
 npm run format
 ```
 
-## Déploiement GitHub Pages
+## Déploiement
 
-1. Configurez `base` dans `vite.config.js` si le dépôt est servi depuis un sous-chemin.
-2. Lancez `npm run build`.
-3. Publiez le contenu de `dist/` via GitHub Pages ou une action dédiée.
+GitHub Pages seul n'est plus suffisant, car l'envoi d'emails nécessite maintenant une plateforme qui expose le dossier `api/`, comme Vercel ou un équivalent.
 
 ## Fonctionnalités
 
 - Formulaire de devis en 4 étapes
 - Calculs automatiques en CHF
 - PDF A4 avec jsPDF et AutoTable
-- Envoi email via Brevo avec PDF en pièce jointe
+- Envoi email via Brevo avec PDF en pièce jointe via `/api/send-quote`
 - Historique local limité aux 20 derniers devis
 - Mode sombre par défaut avec préférence persistée

@@ -1,4 +1,4 @@
-import { sendQuoteRequest } from '../src/server/sendQuoteRequest'
+import sendQuoteRequest from '../src/server/sendQuoteRequest'
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {

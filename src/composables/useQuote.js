@@ -1,6 +1,7 @@
 import { computed } from 'vue'
 import services from '../data/services.json'
 import settings from '../data/settings.json'
+import { buildQuoteRows, calculateQuoteTotals } from './quoteMath'
 
 const dateFormatter = new Intl.DateTimeFormat('fr-CH', {
   day: '2-digit',
@@ -62,63 +63,16 @@ export function createQuoteNumber() {
 export function useQuote(source) {
   const state = 'value' in source ? source : { value: source }
 
-  const selectedServices = computed(() =>
-    state.value.selectedServiceIds
-      .map((id) => services.find((service) => service.id === id))
-      .filter(Boolean),
-  )
-
-  const rows = computed(() =>
-    selectedServices.value.map((service) => {
-      const detail = state.value.serviceDetails[service.id] || { optionIds: [], quantity: 1 }
-      const quantity = service.unit === 'hour' ? Math.max(Number(detail.quantity) || 1, 0.5) : 1
-      const optionRows = service.options.filter((option) => detail.optionIds?.includes(option.id))
-      const serviceTotal = service.basePrice * quantity
-      const optionsTotal = optionRows.reduce((sum, option) => sum + option.extraPrice, 0)
-
-      return {
-        service,
-        quantity,
-        options: optionRows,
-        unitPrice: service.basePrice,
-        serviceTotal,
-        optionsTotal,
-        lineTotal: serviceTotal + optionsTotal,
-      }
-    }),
-  )
-
-  const servicesSubtotal = computed(() =>
-    rows.value.reduce((sum, row) => sum + row.lineTotal, 0),
-  )
-
-  const travelFees = computed(() => {
-    if (!state.value.global.travelEnabled) return 0
-    return (Number(state.value.global.distanceKm) || 0) * settings.quote.travelRatePerKm
-  })
-
-  const urgencyFees = computed(() => {
-    if (!state.value.global.urgency) return 0
-    return servicesSubtotal.value * (settings.quote.urgencySurchargePercent / 100)
-  })
-
-  const discountAmount = computed(() => {
-    const percent = Math.min(
-      Math.max(Number(state.value.global.discountPercent) || 0, 0),
-      settings.quote.maxDiscountPercent,
-    )
-    return (servicesSubtotal.value + travelFees.value + urgencyFees.value) * (percent / 100)
-  })
-
-  const taxableBase = computed(
-    () => servicesSubtotal.value + travelFees.value + urgencyFees.value - discountAmount.value,
-  )
-
-  const vatAmount = computed(() =>
-    settings.vat.enabled ? taxableBase.value * (settings.vat.rate / 100) : 0,
-  )
-
-  const total = computed(() => taxableBase.value + vatAmount.value)
+  const rows = computed(() => buildQuoteRows(state.value, services))
+  const selectedServices = computed(() => rows.value.map((row) => row.service))
+  const totals = computed(() => calculateQuoteTotals(state.value, services, settings))
+  const servicesSubtotal = computed(() => totals.value.servicesSubtotal)
+  const travelFees = computed(() => totals.value.travelFees)
+  const urgencyFees = computed(() => totals.value.urgencyFees)
+  const discountAmount = computed(() => totals.value.discountAmount)
+  const taxableBase = computed(() => totals.value.taxableBase)
+  const vatAmount = computed(() => totals.value.vatAmount)
+  const total = computed(() => totals.value.total)
 
   return {
     rows,
